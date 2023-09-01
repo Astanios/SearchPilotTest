@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input,
+select,
+label {
+  width: 100%;
+}
+
+input,
+select {
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  border-bottom: 2px solid #5679a1;
+  color: #fff;
+}
+
+input[type="text"]:focus {
+  background-color: #376eac;
+  border: 0px solid #12141700;
+}
+
+label {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: ">  ";
+  padding-left: 15px;
+}
+
+li {
+  margin: 5px 0;
+}
+li:hover {
+  background-color: #5679a1;
+  cursor: pointer;
+}
+
+a:link {
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.root {
+  background: linear-gradient(#141e30, #243b55);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer {
+  box-shadow: 8px 8px 20px -10px #121417;
+  background-color: #2e4c6e;
+
+  border-radius: 10px;
+  padding: 25px;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.tagsContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0;
+  max-width: 500px;
+  flex-basis: 0;
+}
+.tag {
+  background-color: #436d9e;
+  margin: 2px;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.tag:hover {
+  border: none;
+  background-color: #5679a1;
+  color: #fff;
+}
+
+.inputContainer {
+  margin: 10px 0;
+}
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.backButton {
+  background-color: #2e4c6e;
+  padding: 12px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  min-width: 100px;
+  text-align: center;
+  box-shadow: 8px 8px 20px -10px #121417;
+}
+
+.backButton:hover {
+  background-color: #5679a1;
+}
+.nameInputContainer input {
+  width: 70%;
+}
+
+.nameInputContainer button {
+  width: 30%;
+}
+
+.active {
+  cursor: pointer;
+}
+
+.inactive {
+  cursor: not-allowed;
+}
+
+.validateBtn {
+  background-color: #436d9e;
+  border: none;
+  border-radius: 5px;
+  padding: 4px;
+  color: #fff;
+}
