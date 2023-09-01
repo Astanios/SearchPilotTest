@@ -1,47 +1,35 @@
-# react-take-home
+# SearchPilot Submission
 
-React take home task for Sr. Frontend Dev role
+This is my submission for the proposed SearchPilot test. It has been made with as few libraries as possible, only using React, Zustand and Axios.
 
-Thank you for your application to SearchPilot! We greatly appreciate you taking the time to apply and your interest in working with us.
+The following assumptions were made:
 
-We have created a take home task and thank you taking the time to complete SearchPilot take-home challenge for our senior frontend developer role.
+- Every clothe share the same standard for sizing except footwear, nevertheless if some item has changed its type it will lose all its previous chosen sizes, but will regain them if their type doesn't change.
 
-The task should hopefully not take too long. If you have any questions at all, please don’t hesitate to reach out to us.
+- Every different type has one additional custom input except activewear.
 
-The goal of this take home task is to build out a product list and product form. Please clone this repository: https://github.com/SearchPilot/react-take-home
+- You can submit your edited item without validating its name.
 
-### Task
+- You can only validate your item new name if its different from the original.
 
-- Display a list of products (Endpoint: `GET /api/products` and individual product endpoint: `GET /api/products/:id`)
-- When user clicks on a product, user gets taken to a dynamic form and should see a form where they can edit product detail. Form should have these input fields:
-  - Product name (User should be able to validate a unique product name `POST /api/validate`)
-  - Product type
-  - When product type is selected, user should then see options such as:
-    - Size
-    - Features
-    - Brand
-- Save the form (Endpoints: `PUT /api/products/:id`) - Please see the product detail page low fidelity mockup
-- On the product list page, user can add a new product, which takes you to the product detail form page (Endpoint: `POST /api/products`)
-- If anything appears ambiguous, please make your own choice on how to proceed. If there appears to be a roadblock of some sort, please do email us.
+- To add features in an item, input them in the Features box and hit enter or comma.
 
-### Requirements
+- To remove features or sizes in an item, click them.
 
-- Use React to build the frontend of the web application
-- Implement all of the features shown in the design mockup and task list
-- Ensure that the application is responsive and works on all devices
-- Write clean, maintainable code that adheres to best practices
+## Project Setup
 
-### Submission
+```sh
+yarn
+```
 
-Please submit your completed task as a GitHub repository or a CodeSandbox. Include instructions on how to run your application and any additional notes or comments that you think are relevant.
+### Compile and Hot-Reload for Development
 
-### Design Mockup
+```sh
+yarn dev
+```
 
-Product Detail Forms
+### Type-Check, Compile and Minify for Production
 
-![Product Detail Form](./Product-Detail-Form.png)
-![image](Product-Detail-Form-1.png)
-
-Product Details Pages:
-
-Feel free to design/style the list of products as you wish.
+```sh
+yarn build
+```

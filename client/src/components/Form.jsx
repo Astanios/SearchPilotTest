@@ -48,7 +48,6 @@ const Form = ({
   );
 
   useEffect(() => {
-    console.log("updateAttributes", customInput);
     updateAttributes({
       name: newName,
       type: newType,
