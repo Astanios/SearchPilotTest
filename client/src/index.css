@@ -135,11 +135,11 @@ a:visited {
 .backButton:hover {
   background-color: #5679a1;
 }
-.nameInputContainer input {
+.nameInput input {
   width: 70%;
 }
 
-.nameInputContainer button {
+.nameInput button {
   width: 30%;
 }
 

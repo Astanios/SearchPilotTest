@@ -30,7 +30,7 @@ const Name = ({ nameSrc, validate, updateName }) => {
   return (
     <label>
       Name:
-      <div className="nameInputContainer">
+      <div className="nameInput">
         <input
           value={name}
           onChange={handleName}
