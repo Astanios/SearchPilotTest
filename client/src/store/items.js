@@ -13,8 +13,7 @@ const useItemsStore = create((set) => ({
     set({ selectedItem: response });
   },
   updateItem: async (id, data) => {
-    const response = await putItem(id, data);
-    console.log("response", response);
+    await putItem(id, data);
   },
   validateName: async (id, name) => {
     const response = await validate(id, name);

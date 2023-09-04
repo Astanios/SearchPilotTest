@@ -11,10 +11,10 @@ const Home = () => {
   return (
     <div>
       <div className="mainContainer">
-        <h2 className="title">Products list:</h2>
-        <ul>
+        <h2 className="productList__title">Products list:</h2>
+        <ul className="productList">
           {itemsList.map((item) => (
-            <li key={item.id}>
+            <li className="productList__item" key={item.id}>
               <Link to={`item/${item.id}`}>{item.name}</Link>
             </li>
           ))}

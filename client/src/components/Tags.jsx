@@ -80,7 +80,7 @@ const Tag = ({
   }, [sameType]);
 
   return (
-    <div className="container">
+    <div>
       {type === "select" ? (
         <select value={0} onChange={handleSelect}>
           <option value={0}>Choose sizes</option>
