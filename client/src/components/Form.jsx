@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useMemo, useEffect, useCallback } from "react";
 import Tags from "./Tags";
 import CustomInput from "./CustomInput";
 import Name from "./Name";
 import { footwearSizes, clothingSizes } from "../utils/products";
-import { typeInput, capitalize } from "../utils/products";
+import { typeInput } from "../utils/products";
 
 const Form = ({
   type,
@@ -23,6 +23,7 @@ const Form = ({
   const [customInput, setCustomInput] = useState({});
   const [newSizes, setNewSizes] = useState([]);
   const [newFeatures, setNewFeatures] = useState([]);
+  const customInputKey = useMemo(() => typeInput[newType], [newType]);
 
   useEffect(() => {
     setNewType(type);
@@ -32,20 +33,14 @@ const Form = ({
     setCustomInput({ [typeInput[type]]: props[typeInput[type]] });
   }, [brand, features, sizes, type]);
 
-  const handleType = useCallback(
-    (e) => {
-      setNewType(e.target.value);
-      setShowRest(true);
-    },
-    [newType, showRest]
-  );
+  const handleType = useCallback((e) => {
+    setNewType(e.target.value);
+    setShowRest(true);
+  }, []);
 
-  const handleBrand = useCallback(
-    (e) => {
-      setNewBrand(e.target.value);
-    },
-    [brand]
-  );
+  const handleBrand = useCallback((e) => {
+    setNewBrand(e.target.value);
+  }, []);
 
   useEffect(() => {
     updateAttributes({
@@ -56,7 +51,15 @@ const Form = ({
       features: newFeatures,
       ...customInput,
     });
-  }, [newType, newBrand, newSizes, newFeatures, newName, customInput]);
+  }, [
+    newType,
+    newBrand,
+    newSizes,
+    newFeatures,
+    newName,
+    customInput,
+    updateAttributes,
+  ]);
 
   return (
     <div>
@@ -120,9 +123,7 @@ const Form = ({
           </div>
           <CustomInput
             type={newType}
-            valueSrc={
-              props[typeInput[newType]] ? props[typeInput[newType]] : null
-            }
+            valueSrc={props[customInputKey] ? props[customInputKey] : null}
             update={setCustomInput}
           />
         </>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const Tag = ({
   tagsSrc,
@@ -12,10 +12,9 @@ const Tag = ({
   const [tags, setTags] = useState([]);
   const [options, setOptions] = useState([]);
   const [isKeyReleased, setIsKeyReleased] = useState(false);
-  const handleChange = (e) => {
-    const { value } = e.target;
-    setInput(value);
-  };
+  const handleChange = useCallback((e) => {
+    setInput(e.target.value);
+  }, []);
   const handleKeyDown = (e) => {
     const { key } = e;
     const trimmedInput = input.trim();
@@ -40,23 +39,23 @@ const Tag = ({
     setIsKeyReleased(false);
   };
 
+  const handleKeyUp = useCallback(() => {
+    setIsKeyReleased(true);
+  }, []);
+
+  const handleDelete = useCallback((e, index) => {
+    e.preventDefault();
+    setTags((prevState) => prevState.filter((tag, i) => i !== index));
+  }, []);
+
+  const handleSelect = useCallback((e) => {
+    e.preventDefault();
+    setTags((prevState) => [...prevState, e.target.value]);
+  }, []);
+
   useEffect(() => {
     setTags(tagsSrc);
   }, []);
-
-  const handleKeyUp = () => {
-    setIsKeyReleased(true);
-  };
-
-  const handleDelete = (e, index) => {
-    e.preventDefault();
-    setTags((prevState) => prevState.filter((tag, i) => i !== index));
-  };
-
-  const handleSelect = (e) => {
-    e.preventDefault();
-    setTags((prevState) => [...prevState, e.target.value]);
-  };
 
   useEffect(() => {
     update(tags);

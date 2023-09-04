@@ -6,14 +6,14 @@ const CustomInput = ({ type, valueSrc, update }) => {
 
   const handleInputValue = useCallback((e) => {
     setInputValue(e.target.value);
-  });
+  }, []);
   useEffect(() => {
     if (valueSrc) setInputValue(valueSrc);
   }, [valueSrc]);
 
   useEffect(() => {
     update({ [typeInput[type]]: inputValue });
-  }, [inputValue]);
+  }, [inputValue, update, type]);
   return (
     typeInput[type] && (
       <>
